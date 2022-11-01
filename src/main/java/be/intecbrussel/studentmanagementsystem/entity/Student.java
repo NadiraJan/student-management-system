@@ -3,6 +3,7 @@ package be.intecbrussel.studentmanagementsystem.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.domain.PageRequest;
 
 import javax.persistence.*;
 
@@ -21,6 +22,7 @@ public class Student {
     private String lastName;
     @Column(name = "email", nullable = false)
     private String email;
+
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
