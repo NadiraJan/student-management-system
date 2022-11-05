@@ -1,4 +1,4 @@
-package be.intecbrussel.studentmanagementsystem.services;
+package be.intecbrussel.studentmanagementsystem.services.interfaces;
 
 import be.intecbrussel.studentmanagementsystem.StudentManagementSystemApplication;
 import be.intecbrussel.studentmanagementsystem.entity.Student;

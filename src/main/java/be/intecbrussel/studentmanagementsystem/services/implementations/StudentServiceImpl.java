@@ -1,14 +1,15 @@
-package be.intecbrussel.studentmanagementsystem.services;
+package be.intecbrussel.studentmanagementsystem.services.implementations;
 
 import be.intecbrussel.studentmanagementsystem.entity.Student;
 import be.intecbrussel.studentmanagementsystem.repositories.StudentRepository;
+import be.intecbrussel.studentmanagementsystem.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 

@@ -1,7 +1,7 @@
 package be.intecbrussel.studentmanagementsystem.controllers;
 
 import be.intecbrussel.studentmanagementsystem.entity.Student;
-import be.intecbrussel.studentmanagementsystem.services.StudentService;
+import be.intecbrussel.studentmanagementsystem.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
