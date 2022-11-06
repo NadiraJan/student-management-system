@@ -1,14 +1,11 @@
 package be.intecbrussel.studentmanagementsystem;
-
 import be.intecbrussel.studentmanagementsystem.entity.*;
 import be.intecbrussel.studentmanagementsystem.repositories.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
 
 @SpringBootApplication
 public class StudentManagementSystemApplication implements CommandLineRunner {
@@ -32,7 +29,7 @@ public class StudentManagementSystemApplication implements CommandLineRunner {
 
 
         Student student1 = new Student("John", "Jackson", "john@mail.com", "password",
-                13, "jongen", "2AC");
+                13, "Boy", "2AC");
         studentRepository.save(student1);
 
 

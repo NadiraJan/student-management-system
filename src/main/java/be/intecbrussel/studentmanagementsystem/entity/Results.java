@@ -15,17 +15,15 @@ import java.util.List;
 public class Results {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   // private String nameOfSubject;
+   //private String nameOfSubject;
     private Long id;
     private double maxPoint;
     private Subjects subjects;
     private String remarks;
 
-
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
-
 
     public Results(double maxPoint, Subjects subjects, String remarks, Student student) {
         this.maxPoint = maxPoint;

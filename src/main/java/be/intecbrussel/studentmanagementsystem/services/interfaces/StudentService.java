@@ -3,6 +3,7 @@ package be.intecbrussel.studentmanagementsystem.services.interfaces;
 import be.intecbrussel.studentmanagementsystem.StudentManagementSystemApplication;
 import be.intecbrussel.studentmanagementsystem.entity.Student;
 import be.intecbrussel.studentmanagementsystem.repositories.StudentRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

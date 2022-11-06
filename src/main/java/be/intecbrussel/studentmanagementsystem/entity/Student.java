@@ -1,6 +1,5 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
-import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,11 +31,9 @@ public class Student {
     @Column(name = "grade", nullable = false)
     private String grade;
 
-
     @ManyToOne
     @JoinColumn(name = "classTeacher_id", referencedColumnName = "id")
     private ClassTeacher classTeacher;
-
 
     public Student(String firstName, String lastName, String email, String password, int age, String gender,
                    String grade) {
@@ -52,7 +49,6 @@ public class Student {
 
     @OneToOne(targetEntity = Parent.class, cascade = CascadeType.ALL)
     private Parent parent;
-
 
  /* @OneToOne(fetch = FetchType.EAGER,
   cascade = CascadeType.ALL,
