@@ -21,6 +21,13 @@ public class EmailMessage{
     private LocalDateTime receivedAt;
     private LocalDateTime sentAt;
 
+    @PrePersist
+    protected void oneSent() {
+        this.sentAt = LocalDateTime.now();
+        this.receivedAt = LocalDateTime.now();
+    }
+
+
     @Override
     public String toString() {
         return "EmailMessage{" +

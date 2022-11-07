@@ -1,7 +1,10 @@
 package be.intecbrussel.studentmanagementsystem.services.emailservice;
 
+import be.intecbrussel.studentmanagementsystem.entity.EmailMessage;
+
 import java.time.LocalDateTime;
 
 public interface EmailSenderService {
-    void sendEmail(String to, String subject, String text, String emailMessageTo, String from, LocalDateTime receivedAt, LocalDateTime sentAt);
+
+    void sendEmail(EmailMessage emailMessage);
 }
