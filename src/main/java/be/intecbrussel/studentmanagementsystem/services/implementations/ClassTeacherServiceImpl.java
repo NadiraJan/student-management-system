@@ -17,4 +17,14 @@ public class ClassTeacherServiceImpl implements ClassTeacherService {
     public ClassTeacher getClassTeacherById(Long id) {
         return classTeacherRepository.findById(id).get();
     }
+
+    @Override
+    public ClassTeacher createClassTeacher(ClassTeacher classTeacher) {
+        return classTeacherRepository.save(classTeacher);
+    }
+
+    @Override
+    public void save(ClassTeacher classTeacher) {
+        classTeacherRepository.save(classTeacher);
+    }
 }
