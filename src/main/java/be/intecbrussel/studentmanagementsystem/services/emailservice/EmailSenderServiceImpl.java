@@ -33,7 +33,7 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 
     }
 
-    public void sentEmail(EmailMessage simpleMailMessage, ClassTeacher classTeacher, Student student) {
+ /*   public void sentEmail(EmailMessage simpleMailMessage, ClassTeacher classTeacher, Student student) {
         String lastNameStudent = new Student().getLastName();
         String lastNameClassTeacher = new ClassTeacher().getLastName();
         String subject = new EmailMessage().getSubject();
@@ -44,8 +44,8 @@ public class EmailSenderServiceImpl implements EmailSenderService {
         simpleMailMessage.setMessage(message);
         simpleMailMessage.setFrom(lastNameClassTeacher);
         simpleMailMessage.setTo(lastNameStudent);
-        emailMessageRepository.save(simpleMailMessage);
+        emailMessageRepository.save(simpleMailMessage);*/
 
     }
 
-}
+

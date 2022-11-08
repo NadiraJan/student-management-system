@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMARTSCHOOL APP</title>
+    <link th:href= "@{/css/home.css}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" th:src="@{/js/home.js}"></script>
+   <!-- <img src="/static/images/img.png" height="1880" width="1880">!-->
+    <div>
+        <div style="background-image:url('images/img.jpeg'); background-size:100% 100%;
+height:900px";></div></div>
+
+</head>
+<body>
+
+
+<div class="homepage-welcome" >
+    <div class="homepage-welcome-in" >
+        <h1><span>Welcom<span id="sparkles">e</span></span></h1>
+    </div>
+</div>
+<style type="text/css">.homepage-welcome .homepage-welcome-in h1 span {
+	background-image: linear-gradient(to bottom, #bc9307, #bc9307, #bc9307, #dec381, #fdfbf7, #fcfbf6, #fcfbf6);
+background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381, #bc9307, #bc9307, #bc9307);
+	-webkit-text-stroke: 2px #bd940b;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: fadeIn 1500ms ease-in, reveal 4000ms ease-in-out forwards 500ms, glow 3500ms infinite linear 3500ms;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: rotate(20deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: rotate(20deg);
+  }
+}
+@-webkit-keyframes reveal {
+  20% {
+    letter-spacing: 8px;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+@keyframes reveal {
+  20% {
+    letter-spacing: 8px;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+@-webkit-keyframes glow {
+  20% {
+background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381, #bc9307, #bc9307, #bc9307);
+  }
+}
+@keyframes glow {
+  20% {
+background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381, #bc9307, #bc9307, #bc9307);
+  }
+}
+</style>
+
+
+<script src="/js/home.js"></script>
+
+
+</body>
+</html>
