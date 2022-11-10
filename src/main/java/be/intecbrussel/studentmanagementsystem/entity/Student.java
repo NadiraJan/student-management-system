@@ -1,19 +1,21 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.domain.PageRequest;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "students")
-public class Student {
-    @Id
+public class Student extends CommonObject{
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(name = "first_name", nullable = false)
@@ -32,10 +34,8 @@ public class Student {
     private String grade;
 
     @ManyToOne
-    @JoinColumn(name = "classTeacher_id", referencedColumnName = "id")
+    @JoinColumn(name = "classTeacher_id", referencedColumnName = "id",unique = false)
     private ClassTeacher classTeacher;
-
-
 
     public Student(String firstName, String lastName, String email, String password, int age, String gender,
                    String grade) {
@@ -49,15 +49,32 @@ public class Student {
 
     }
 
-    @OneToOne(targetEntity = Parent.class, cascade = CascadeType.ALL)
+   // @OneToOne(targetEntity = Parent.class, cascade = CascadeType.ALL)
+    // private Parent parent;
+
+
+    @OneToOne(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            mappedBy = "student")
     private Parent parent;
 
- /* @OneToOne(fetch = FetchType.EAGER,
-  cascade = CascadeType.ALL,
-  mappedBy = "student")
-  private Parent parent;*/
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private Set<Results> results;
 
-   /* @OneToMany
-    @JoinColumn(name = "results_id", referencedColumnName = "id")
-    private Results results;*/
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", grade='" + grade + '\'' +
+                ", classTeacher=" + classTeacher +
+                ", parent=" + parent +
+                ", results=" + results +
+                '}';
+    }*/
 }

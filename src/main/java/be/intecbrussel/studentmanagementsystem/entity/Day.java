@@ -1,6 +1,6 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
-public enum Days {
+public enum Day {
 
     MONDAY,
     TUESDAY,

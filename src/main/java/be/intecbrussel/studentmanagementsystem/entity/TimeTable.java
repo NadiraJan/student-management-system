@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
@@ -18,18 +15,36 @@ public class TimeTable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 255, nullable = false)
     private Subjects subjects;
-    private String dayOfWeek;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 255, nullable = false)
+    private Day day;
+
     private LocalTime beginTime;
     private LocalTime endTime;
     private int classRoomNumber;
 
-    public TimeTable(Subjects subjects, String dayOfWeek, LocalTime beginTime,
+    public TimeTable(Subjects subjects, Day day, LocalTime beginTime,
                      LocalTime endTime, int classRoomNumber) {
         this.subjects = subjects;
-        this.dayOfWeek = dayOfWeek;
+        this.day = day;
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.classRoomNumber = classRoomNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "TimeTable{" +
+                "subjects=" + subjects +
+                ", day=" + day +
+                ", beginTime=" + beginTime +
+                ", endTime=" + endTime +
+                ", classRoomNumber=" + classRoomNumber +
+                '}';
     }
 }

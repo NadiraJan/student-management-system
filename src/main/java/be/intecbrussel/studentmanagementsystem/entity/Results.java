@@ -15,9 +15,10 @@ import java.util.List;
 public class Results {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-   //private String nameOfSubject;
     private Long id;
     private double maxPoint;
+    @Enumerated(EnumType.STRING)
+    @Column(length=255, nullable = false)
     private Subjects subjects;
     private String remarks;
 
@@ -30,5 +31,16 @@ public class Results {
         this.subjects = subjects;
         this.remarks = remarks;
         this.student = student;
+    }
+
+    @Override
+    public String toString() {
+        return "Results{" +
+                "id=" + id +
+                ", maxPoint=" + maxPoint +
+                ", subjects=" + subjects +
+                ", remarks='" + remarks + '\'' +
+                ", student=" + student +
+                '}';
     }
 }

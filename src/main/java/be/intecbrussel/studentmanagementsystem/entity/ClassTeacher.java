@@ -1,21 +1,24 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class ClassTeacher {
+public class ClassTeacher extends CommonObject {
 
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String firstName;
@@ -23,28 +26,39 @@ public class ClassTeacher {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "classTeacher")
-    //@JoinColumn(name = "classTeacher_id")
-    private List<Student> students;
+ /* @OneToMany(mappedBy = "classTeacher")
+    @JoinColumn(name = "classTeacher_id")
+   private List<Student> students;*/
 
-    public ClassTeacher(String firstName, String lastName, String email, String password) {
+ /*   @OneToMany(mappedBy = "classTeacher", fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private Set<Student> students;*/
+
+
+   /* @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "classTeacher_authority",
+            joinColumns = {@JoinColumn(name = "classTeacher_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
+    private Set<Authority> authorities = new HashSet<>();*/
+
+
+   /* public ClassTeacher(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-    }
+    }*/
 
-    @Override
+  /*  @Override
     public String toString() {
         return "ClassTeacher{" +
-                "id=" + id +
+
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", students=" + students +
                 '}';
-    }
-
-
+    }*/
 }

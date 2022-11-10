@@ -29,8 +29,8 @@
                         <label>MAX POINT</label>
                         <input
                                 type="text"
-                                name="maxpoint"
-                                th:field="*{maxpoint}"
+                                name="maxPoint"
+                                th:field="*{maxPoint}"
                                 class="form-control"
                                 placeholder="Enter Max Point"/>
 
@@ -55,6 +55,19 @@
                                 placeholder="Enter Remarks"/>
 
                     </div>
+
+                    <div class="form-group">
+                        <label>Student</label>
+                        <input
+                                type="text"
+                                name="student.id"
+                                th:field="*{student.id}"
+                                class="form-control"
+                                placeholder="Enter StudentID"/>
+
+                    </div>
+
+
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

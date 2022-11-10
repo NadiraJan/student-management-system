@@ -1,7 +1,7 @@
 package be.intecbrussel.studentmanagementsystem.controllers;
 
-import be.intecbrussel.studentmanagementsystem.entity.ClassTeacher;
-import be.intecbrussel.studentmanagementsystem.services.interfaces.ClassTeacherService;
+import be.intecbrussel.studentmanagementsystem.entity.Student;
+import be.intecbrussel.studentmanagementsystem.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,18 +11,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegisterController {
+
     @Autowired
-    private ClassTeacherService classTeacherService;
+    private StudentRepository studentRepository;
+
     @GetMapping("/register")
-    public String getRegisterPage(Model model){
-        ClassTeacher classTeacher = new ClassTeacher();
-        model.addAttribute("classTeacher", classTeacher);
-        return "teacher_register";
+    public String getRegisterStudent(Model model) {
+        Student student = new Student();
+        model.addAttribute("student", student);
+        return "register";
+
     }
+
     @PostMapping("/register")
-    public String registerNewClassTeacher(@ModelAttribute ClassTeacher classTeacher,Model model){
-        classTeacherService.save(classTeacher);
+    public String registerNewStudent(@ModelAttribute Student student, Model model) {
+        studentRepository.save(student);
         return "redirect:/";
+
     }
 
 

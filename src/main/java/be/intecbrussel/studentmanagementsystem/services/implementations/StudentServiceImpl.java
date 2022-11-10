@@ -35,6 +35,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public Student getStudentByEmail(String email) {
+        return studentRepository.findByEmail(email);
+    }
+
+    @Override
     public Student updateStudent(Student student) {
         return studentRepository.save(student);
     }

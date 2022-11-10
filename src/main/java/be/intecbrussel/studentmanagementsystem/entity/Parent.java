@@ -1,17 +1,21 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = false)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Parent {
-    @Id
+public class Parent extends CommonObject{
+ /*   @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String firstName;
@@ -31,4 +35,16 @@ public class Parent {
 
     @OneToOne(fetch = FetchType.EAGER)
     private Student student;
+
+    @Override
+    public String toString() {
+        return "Parent{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", relation='" + relation + '\'' +
+                ", student=" + student +
+                '}';
+    }*/
 }

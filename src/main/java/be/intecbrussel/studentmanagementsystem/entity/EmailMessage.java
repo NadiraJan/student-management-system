@@ -6,18 +6,19 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class EmailMessage{
+public class EmailMessage {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String recipient;
     private String subject;
     private String message;
-    private String to;
-    private String from;
+    private String attachment;
     private LocalDateTime receivedAt;
     private LocalDateTime sentAt;
 
@@ -31,10 +32,10 @@ public class EmailMessage{
     @Override
     public String toString() {
         return "EmailMessage{" +
-                "subject='" + subject + '\'' +
+                "recipient='" + recipient + '\'' +
+                ", subject='" + subject + '\'' +
                 ", message='" + message + '\'' +
-                ", to='" + to + '\'' +
-                ", from='" + from + '\'' +
+                ", attachment='" + attachment + '\'' +
                 ", receivedAt=" + receivedAt +
                 ", sentAt=" + sentAt +
                 '}';

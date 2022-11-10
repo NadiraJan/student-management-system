@@ -24,4 +24,9 @@ public class ResultsServiceImpl implements ResultsService {
     public Results createResults(Results results) {
         return resultsRepository.save(results);
     }
+
+    @Override
+    public Results saveResults(Results results) {
+        return resultsRepository.save(results);
+    }
 }

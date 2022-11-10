@@ -1,0 +1,65 @@
+/* Attribute Selection */
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+
+form {
+  background: #90a372;
+  padding: 1em;
+  width: 400px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+form h1 {
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin: 1em;
+}
+
+input[type="text"] {
+  padding: .25em;
+  border: 0;
+  background: white;
+  border-radius: 10px;
+  width: 70%;
+  margin: 0 auto 20px;
+}
+
+label {
+  font-size: 1em;
+  font-family: 'Alice', serif;
+}
+
+textarea {
+  background: white;
+  border: 0;
+  margin-bottom: 10px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+input[type="submit"] {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 1.5em;
+  background: #d11c39;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+input[type="text"]:focus {
+  /*  override  */
+  outline: 0;
+  background: #fed6dd;
+}
+
+textarea:focus {
+  background: #fed6dd;
+}
+
+input[type="submit"]:hover {
+  background: orange;
+}

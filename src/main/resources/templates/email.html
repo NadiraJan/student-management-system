@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMARTSCHOOL APP</title>
+    <link th:href= "@{/css/email.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form action="https://formspree.io/scarboroughabigail@gmail.com" method="POST">
+    <h1>Email Me</h1>
+    <label for="">Name:</label>
+
+
+    <label for="">Subject:</label>
+    <input type="text" name="subject"/>
+
+
+    <label for="">Email:</label>
+    <input type="text" name="email"/>
+
+    <textarea name="textarea" cols="45" rows="8">Enter message here</textarea>
+
+    <!--   <label for="">Subscribe</label>
+    <input type="radio" value="Yes" name="subscribe"/>
+    <input type="radio" value="No" name="subscribe"/> -->
+
+
+    <input type="submit" value="Send"/>
+    <!-- <button>Contact Me</button> -->
+
+
+</form>
+
+
+
+</body>
+</html>
