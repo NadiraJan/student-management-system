@@ -10,6 +10,17 @@ public class HomeController {
     public String homePage(Model model){
         return "home";
     }
+
+
+    @GetMapping("/admin/login")
+    public String adminLoginPage(){
+        return "admin/admin_login";
+    }
+
+    @GetMapping("/user/login")
+    public String userLoginPage(){
+        return "user/user_login";
+    }
 }
 
 

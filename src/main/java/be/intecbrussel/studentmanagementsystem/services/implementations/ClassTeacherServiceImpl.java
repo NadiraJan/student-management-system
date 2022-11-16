@@ -6,6 +6,8 @@ import be.intecbrussel.studentmanagementsystem.services.interfaces.ClassTeacherS
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClassTeacherServiceImpl implements ClassTeacherService {
 
@@ -22,6 +24,12 @@ public class ClassTeacherServiceImpl implements ClassTeacherService {
     public ClassTeacher createClassTeacher(ClassTeacher classTeacher) {
         return classTeacherRepository.save(classTeacher);
     }
+
+    @Override
+    public ClassTeacher getClassTeacherByEmail(String email) {
+        return classTeacherRepository.findByEmail(email);
+    }
+
 
     @Override
     public void save(ClassTeacher classTeacher) {

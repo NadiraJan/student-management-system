@@ -1,21 +1,19 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = false)
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Student extends CommonObject{
-  /*  @Id
+public class Student {
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(name = "first_name", nullable = false)
@@ -33,48 +31,36 @@ public class Student extends CommonObject{
     @Column(name = "grade", nullable = false)
     private String grade;
 
-    @ManyToOne
-    @JoinColumn(name = "classTeacher_id", referencedColumnName = "id",unique = false)
+
+
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "classTeacher_id")
     private ClassTeacher classTeacher;
 
-    public Student(String firstName, String lastName, String email, String password, int age, String gender,
-                   String grade) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.age = age;
-        this.gender = gender;
-        this.grade = grade;
-
-    }
-
-   // @OneToOne(targetEntity = Parent.class, cascade = CascadeType.ALL)
-    // private Parent parent;
-
-
-    @OneToOne(fetch = FetchType.EAGER,
+    @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             mappedBy = "student")
     private Parent parent;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER,
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<Results> results;
+    private List<Results> results;
+
+   @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "student_authority", joinColumns = @JoinColumn(
+            name = "student_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_name",
+                    referencedColumnName = "name"))
+    private Set<Authority> authorities = new HashSet<>();
 
     @Override
     public String toString() {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", grade='" + grade + '\'' +
-                ", classTeacher=" + classTeacher +
-                ", parent=" + parent +
-                ", results=" + results +
+                 ", authorities=" + authorities +
                 '}';
-    }*/
+    }
 }
+

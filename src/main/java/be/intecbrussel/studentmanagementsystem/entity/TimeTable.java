@@ -28,23 +28,6 @@ public class TimeTable {
     private LocalTime endTime;
     private int classRoomNumber;
 
-    public TimeTable(Subjects subjects, Day day, LocalTime beginTime,
-                     LocalTime endTime, int classRoomNumber) {
-        this.subjects = subjects;
-        this.day = day;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
-        this.classRoomNumber = classRoomNumber;
-    }
 
-    @Override
-    public String toString() {
-        return "TimeTable{" +
-                "subjects=" + subjects +
-                ", day=" + day +
-                ", beginTime=" + beginTime +
-                ", endTime=" + endTime +
-                ", classRoomNumber=" + classRoomNumber +
-                '}';
-    }
+
 }

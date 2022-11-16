@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,18 +8,17 @@
     <title>SMARTSCHOOL APP</title>
     <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
 
+    <title>Blog :: Login</title>
 <body>
 <div class="container">
 
     <a th:href="@{/}">HOME</a>
 
-
-
    <!-- <form action="#"
           th:action="@{/login}"
           method="POST"> method="get" action="javascript: void(0);" id="login-form" class="login-form" autocomplete="off" role="main">!-->
 
-    <form action="#" th:action="@{/login}" method="post">
+    <form  th:action="@{/login}" method="post" name="login">
         <h1 class="a11y-hidden">Login Form</h1>
         <div>
             <label class="label-email">

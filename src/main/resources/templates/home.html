@@ -15,6 +15,32 @@
 
 </head>
 <body>
+<div align="center">
+    <!--<h2>WELCOME IN SMARTSCHOOL SYSTEM</h2>!-->
+
+    <h4><a th:href="@{/admin/login}">ClassTeacher</a></h4>
+    <h4><a th:href="@{/user/login}">Student</a></h4>
+    <h4><a th:href="@{/user/login}">Parent</a></h4>
+
+</div>
+
+
+<div class="float-container">
+</div>
+
+<div class="float-child">
+
+    <div class="wrapper d-flex align-items-stretch">
+             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(images/logo.jpg);"></div>
+                    <h2><a th:href="@{'/students/'}">Go To Students</a></h2>
+                </div>
+            </div> </div></div>
+
+
+
+
 <a href="send-mail">Send mail</a>
 
   <ul class="nav navbar-nav navbar-right" >
@@ -86,6 +112,7 @@ background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381,
 
 </style>
 
-<script type="text/javascript" th:src="@{js/home.js}"></script>
+<script type="text/javascript" src="../static/js/home.js" th:src="@{/js/home.js}"></script>
+
 </body>
 </html>
