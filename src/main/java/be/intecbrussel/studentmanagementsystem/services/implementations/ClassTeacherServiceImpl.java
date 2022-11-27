@@ -6,14 +6,17 @@ import be.intecbrussel.studentmanagementsystem.services.interfaces.ClassTeacherS
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ClassTeacherServiceImpl implements ClassTeacherService {
 
     @Autowired
     private ClassTeacherRepository classTeacherRepository;
 
+
+    @Override
+    public ClassTeacher getAllClassTeacher() {
+        return (ClassTeacher) classTeacherRepository.findAll();
+    }
 
     @Override
     public ClassTeacher getClassTeacherById(Long id) {

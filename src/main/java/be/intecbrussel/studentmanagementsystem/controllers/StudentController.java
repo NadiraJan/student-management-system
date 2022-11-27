@@ -1,6 +1,8 @@
 package be.intecbrussel.studentmanagementsystem.controllers;
 
+import be.intecbrussel.studentmanagementsystem.entity.ClassTeacher;
 import be.intecbrussel.studentmanagementsystem.entity.Student;
+import be.intecbrussel.studentmanagementsystem.services.interfaces.ClassTeacherService;
 import be.intecbrussel.studentmanagementsystem.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,19 +12,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    public StudentController(StudentService studentService) {
-        super();
-        this.studentService = studentService;
-    }
-
     //handler method to handle list of students and return mode and view
     @GetMapping("/students")
     public String listStudents(Model model) {
+
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
 
@@ -30,8 +30,9 @@ public class StudentController {
 
     @GetMapping("/students/new")
     public String createStudentForm(Model model) {
-        Student student = new Student();
-        model.addAttribute("student", student);
+        List<Student> students = studentService.getAllStudents();
+
+        model.addAttribute("student", new Student());
         return "create_student";
 
     }
@@ -58,9 +59,15 @@ public class StudentController {
 
         //get student from db by id
         Student existingStudent = studentService.getStudentById(id);
+        //  existingStudent.setId(id);
         existingStudent.setFirstName(student.getFirstName());
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
+        existingStudent.setPassword(student.getPassword());
+        existingStudent.setAge(student.getAge());
+        existingStudent.setGrade(student.getGender());
+        existingStudent.setGrade(student.getGrade());
+        existingStudent.setClassTeacher(student.getClassTeacher());
 
         // save udpated student object
         studentService.updateStudent(existingStudent);
@@ -70,9 +77,9 @@ public class StudentController {
 
     //handle method to handle delete student request
     @GetMapping("/students/{id}")
-     public String deleteStudent(@PathVariable Long id){
+    public String deleteStudent(@PathVariable Long id) {
         studentService.deleteStudentById(id);
         return "redirect:/students";
 
-     }
+    }
 }

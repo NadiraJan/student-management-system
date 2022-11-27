@@ -11,6 +11,7 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table
 public class TimeTable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)

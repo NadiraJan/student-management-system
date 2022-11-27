@@ -1,0 +1,21 @@
+.edit-buttons {
+  display: block;
+  margin-right: 1em;
+ padding: 5px 5px;
+}
+
+.edit-input {
+  display: inline-block;
+}
+
+.product-view.editing {
+  background: #ccc;
+}
+
+#add-order {
+   border: solid;
+   border-width: 2.5px;
+   margin-right:630px;
+   background:white;
+
+}

@@ -31,36 +31,33 @@ public class Student {
     @Column(name = "grade", nullable = false)
     private String grade;
 
-
-
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "classTeacher_id")
     private ClassTeacher classTeacher;
 
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            mappedBy = "student")
-    private Parent parent;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY,
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private List<Results> results;
 
-   @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "student_authority", joinColumns = @JoinColumn(
-            name = "student_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "authority_name",
-                    referencedColumnName = "name"))
-    private Set<Authority> authorities = new HashSet<>();
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                 ", authorities=" + authorities +
-                '}';
+    public Student(String firstName, String lastName, String email, String password, int age, String gender,
+                   String grade, ClassTeacher classTeacher) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.gender = gender;
+        this.grade = grade;
+        this.classTeacher = classTeacher;
     }
+
+    public Student(String email, String password) {
+        this.email = email;
+        this.password = password;
+
+    }
+
+
 }
 

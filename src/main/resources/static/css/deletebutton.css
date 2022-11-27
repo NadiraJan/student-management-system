@@ -1,0 +1,127 @@
+/* Color Scheme
+#c0b283
+#dcd0c0
+#f4f4f4
+#373737 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color:#373737;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom,#f4f4f4, #dcd0c0);
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 3px;
+  padding: 50px 0 20px 0;
+}
+
+p {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 17px;
+  color: #7c7c7c;
+}
+
+.p-1 {
+  margin-top: 20px;
+}
+
+.p-2 {
+  margin-top: 5px;
+}
+
+.container {
+  margin-top: 35px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+#user-input {
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  width: 350px;
+  height: 35px;
+  letter-spacing: 2px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: solid 0.5px #7c7c7c;
+}
+
+#user-input:focus {
+  outline: none;
+  border: solid 2px #c0b283;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 5px;
+  transition-property: all;
+  transition-duration: 0.2s;
+  outline: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+  transform: translateY(-0.5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.enter-btn {
+  margin-left: 7px;
+  border: solid 1px #a89c74;
+  background-color:#c0b283;
+  padding: 10px 30px 9px 30px;
+}
+
+#list {
+  width: 50vw;
+  transform: translateX(50%);
+  text-align: center;
+  border: solid 1px #cabfb1;
+  border-radius: 8px;
+  padding: 20px 0;
+}
+
+.list-item {
+  list-style: none;
+  padding: 7px 0;
+  letter-spacing: 2px;
+
+  position: relative;
+  transition-property: color, transform;
+  transition-duration: 0.5s;
+}
+
+.list-item:hover {
+  color: #a89c74;
+  transform: scale(1.02);
+}
+
+.delete-btn {
+  background-color: rgb(240, 96, 96);
+  padding: 5px 10px;
+  border: none;
+  color: #f4f4f4;
+
+  position: absolute;
+  right: 88px;
+}
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color:rgb(240, 96, 96);
+}

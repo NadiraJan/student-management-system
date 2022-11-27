@@ -1,23 +1,23 @@
-package be.intecbrussel.studentmanagementsystem.config;
+package be.intecbrussel.studentmanagementsystem.entity.admin;
 
-import be.intecbrussel.studentmanagementsystem.entity.Student;
-import be.intecbrussel.studentmanagementsystem.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class CustomUserDetails implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
+
     @Autowired
-    private StudentRepository studentRepository;
+    private UserRepository userRepository;
 
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Student student = studentRepository.findByEmail(email);
-        if(student == null){
+
+        User user = userRepository.findByEmail(email);
+        if(user == null){
             throw new UsernameNotFoundException("No user found for the given email");
         }
-        return new CustomStudentDetails();
+        return new CustomUserDetails(user);
     }
 }

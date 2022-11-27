@@ -1,7 +1,7 @@
-package be.intecbrussel.studentmanagementsystem.config;
+package be.intecbrussel.studentmanagementsystem.entity.user_student;
 
 import be.intecbrussel.studentmanagementsystem.entity.Student;
-import org.apache.catalina.User;
+import be.intecbrussel.studentmanagementsystem.entity.admin.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,26 +10,31 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomStudentDetails implements UserDetails {
+public class StudentUserDetails implements UserDetails {
 
-    private User user;
+    private Student student;
 
+
+    public StudentUserDetails(Student student) {
+        this.student = student;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority(user.getRoles().toString()));
+        List<SimpleGrantedAuthority>authorities = new ArrayList<>();
+     //   authorities.add(new SimpleGrantedAuthority(user.getRole().toString));
+
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return student.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return student.getEmail();
     }
 
     @Override

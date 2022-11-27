@@ -1,7 +1,8 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
+import be.intecbrussel.studentmanagementsystem.entity.dto.ClassTeacherDto;
 import lombok.*;
-import org.springframework.security.core.parameters.P;
+
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -22,46 +23,14 @@ public class ClassTeacher {
     private String lastName;
     private String email;
     private String password;
-    private Long phoneNumber;
-
+    private int phoneNumber;
 
 
     @OneToMany(mappedBy = "classTeacher",
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Student> students = new HashSet<>();
 
 
-
-
-
-
-
-/*@OneToMany(mappedBy = "classTeacher", cascade = CascadeType.ALL)
-    private Set<Parent> parents = new HashSet<>();
-
-    public ClassTeacher(String firstName, String lastName, String email, String password, Long phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-    }*/
-
-  /*  public Set<Parent>getParents(){
-        return parents;
-    }
-    public void setParents(Set<Parent> parents) {
-        this.parents = parents;
-        for (Parent p : parents) {
-            p.setClassTeacher(this);
-        }*/
-
-/* @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "classTeacher_authority",
-            joinColumns = {@JoinColumn(name = "classTeacher_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-    private Set<Authority> authorities = new HashSet<>();*/
 
 
 }

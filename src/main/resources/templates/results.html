@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link th:href= "@{/css/results.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col-lg-3">
-            <a th:href="@{/results/new}" class="bth bth-primary" type="submit"> Add Result</a>
+            <a class="nav-link" th:href="@{/results}"></a>
 
 
         </div>
@@ -39,7 +40,10 @@
                 <th>Results Max Point</th>
                 <th>Results Subject</th>
                 <th>Results Remarks</th>
+                <th>Student ID</th>
                 <th>Actions</th>
+
+
             </tr>
             </thead>
             <tbody>
@@ -48,21 +52,29 @@
                 <th th:text="${results.subjects}"></th>
                 <th th:text="${results.remarks}"></th>
                 <th th:text="${results.student.id}"></th>
-                <td>
-                    <a th:href="@{/results/edit/{id}(id=${student.id})}"
+
+               <td>
+                    <a th:href="@{/results/edit/{id}(id=${results.id})}"
                        class="btn btn-primary"> Update </a>
 
-                    <a th:href="@{/students/{id}(id=${student.id})}"
+                    <a th:href="@{/results/{id}(id=${results.id})}"
                        class="btn btn-danger"> Delete </a>
                 </td>
-
             </tr>
 
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-lg-3">
+                <a th:href="@{/results/new}"
+                   type="button" id="add-order"  class="btn gradient white">ADD NEW RESULT</button></a>
 
+            </div>
+        </div>
 
     </div>
 </div>
+
+
 </body>
 </html>
