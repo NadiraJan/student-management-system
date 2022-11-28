@@ -7,6 +7,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -16,16 +17,22 @@ import org.springframework.security.web.SecurityFilterChain;
 public class StudentSecurityConfig {
 
     @Bean
-    public UserDetailsService studentUserDetailsService(){
+    public UserDetailsService studentUserDetailsService() {
         return new StudentUserDetailsService();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder2(){
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder2() {
         return NoOpPasswordEncoder.getInstance();
     }
+
     @Bean
-    public DaoAuthenticationProvider authenticationProvider2(){
+    public DaoAuthenticationProvider authenticationProvider2() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(studentUserDetailsService());
         provider.setPasswordEncoder(passwordEncoder2());
@@ -39,6 +46,7 @@ public class StudentSecurityConfig {
 
 
         http.antMatcher("/student/**")
+
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()

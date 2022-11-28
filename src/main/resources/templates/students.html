@@ -28,8 +28,8 @@
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/students}"  >Student Management </a>
-                 </li>
+            <a class="nav-link" th:href="@{/students}">Student Management </a>
+        </li>
 
     </ul>
     <a th:href="@{/admin/home}">BackToAdmin</a>
@@ -41,56 +41,48 @@
     <div class="row">
         <h1>List Students</h1>
     </div>
-        <table class="table table-sriped table-bordered">
-            <thead class="table-dark">
-            <tr>
-                <th>Student First Name</th>
-                <th>Student Last Name</th>
-                <th>Student Email</th>
-                <th>Student Password</th>
-                <th>Student Age</th>
-                <th>Student Gender</th>
-                <th>Student Grade</th>
-                <th>ClassTeacher ID</th>
+    <table class="table table-sriped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Student First Name</th>
+            <th>Student Last Name</th>
+            <th>Student Email</th>
+            <th>Student Password</th>
+            <th>Student Age</th>
+            <th>Student Gender</th>
+            <th>Student Grade</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student: ${students}">
+            <th th:text="${student.firstName}"></th>
+            <th th:text="${student.lastName}"></th>
+            <th th:text="${student.email}"></th>
+            <th th:text="${student.password}"></th>
+            <th th:text="${student.age}"></th>
+            <th th:text="${student.gender}"></th>
+            <th th:text="${student.grade}"></th>
 
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="student: ${students}">
-                <th th:text="${student.firstName}"></th>
-                <th th:text="${student.lastName}"></th>
-                <th th:text="${student.email}"></th>
-                <th th:text="${student.password}"></th>
-                <th th:text="${student.age}"></th>
-                <th th:text="${student.gender}"></th>
-                <th th:text="${student.grade}"></th>
-
-                <td>
-
-                    <a th:href="@{/students/edit/{id}(id=${student.id})}"
-                       class="k-button k-edit-button" href="\\#">
+            <td>
+                <a th:href="@{/students/edit/{id}(id=${student.id})}"
+                   class="k-button k-edit-button" href="\\#">
                      <span class="k-icon k-edit">
-                     </span></a> </td>
-                    <td>
-
-<button type="button" >
+                     </span></a></td>
+            <td>
+                <button type="button">
                     <a th:href="@{/students/{id}(id=${student.id})}"
-                     class="btn btn-danger btn-xs dt-delete">
-
-                    </a> </button>
-
-
-                    </td>
-
-            </tr>
-            </tbody>
-        </table>
+                       class="btn btn-danger btn-xs dt-delete">
+                    </a></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     <div class="row">
         <div class="col-lg-3">
             <a th:href="@{/students/new}"
-               type="button" id="add-order"  class="btn gradient white">ADD</button></a>
+               type="button" id="add-order" class="btn gradient white">ADD</button></a>
 
         </div>
     </div>

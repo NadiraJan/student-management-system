@@ -25,7 +25,7 @@ public class ResultsController {
     private StudentService studentService;
 
 
-    @GetMapping("/results/{new}")
+    @GetMapping("/results/new")
     public String createResultsForm(Model model){
         Results results = new Results();
         model.addAttribute("results", results);
@@ -39,15 +39,6 @@ public class ResultsController {
         return "redirect:/results";
     }
 
-    @GetMapping("/results/{studentId}")
-    public String seeAllResultsByStudentId(Model model, @PathVariable Long studentId){
-        Student student = studentService.getStudentById(studentId);
-        List<Results>results = resultsService.getResultsByStudent(student);
-        model.addAttribute("results", results);
-        model.addAttribute("results", new Results(0.0, Subjects.valueOf(""),"",student));
-
-        return "results";
-    }
 
     @GetMapping("/results")
     public String listResults(Model model) {
@@ -55,5 +46,15 @@ public class ResultsController {
         model.addAttribute("results", resultsService.getAllResults());
         return "results";
 
+    }
+
+    @GetMapping("/myresults/{studentId}")
+    public String seeAllResultsByStudentId(Model model, @PathVariable Long studentId) {
+        Student student = studentService.getStudentById(studentId);
+        List<Results> results = resultsService.getResultsByStudent(student);
+        model.addAttribute("results", results);
+        model.addAttribute("results", new Results(0, Subjects.valueOf(""), "", student));
+
+        return "myresults";
     }
 }

@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
 @Controller
 public class HomeController {
 
@@ -38,9 +37,8 @@ public class HomeController {
     }
 
     @GetMapping("/admin/home")
-    public String viewAdminHomePage(){
+    public String viewAdminHomePage() {
         return "admin/admin_home";
-
     }
 
     @GetMapping("/student/login")
@@ -48,15 +46,13 @@ public class HomeController {
         return "student/student_login";
     }
 
- @GetMapping("/student/home")
+    @GetMapping("/student/home")
     public String viewStudentHomePage() {
         return "student/student_home";
     }
 
 
-
-
-    }
+}
 
 
 

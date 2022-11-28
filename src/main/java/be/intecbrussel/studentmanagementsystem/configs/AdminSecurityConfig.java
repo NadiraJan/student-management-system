@@ -29,7 +29,7 @@ public class AdminSecurityConfig {
     public DaoAuthenticationProvider authenticationProvider1() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService());
-     provider.setPasswordEncoder(passwordEncoder1());
+        provider.setPasswordEncoder(passwordEncoder1());
 
         return provider;
     }
@@ -43,8 +43,7 @@ public class AdminSecurityConfig {
 
         http
                 .antMatcher("/admin/**")
-
-                .authorizeRequests().anyRequest().authenticated()
+                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/admin/login")
@@ -54,11 +53,12 @@ public class AdminSecurityConfig {
 
                 .permitAll()
                 .and()
+
                 .logout()
                 .logoutUrl("/admin/logout")
                 .logoutSuccessUrl("/");
 
 
-return http.build();
+        return http.build();
     }
 }

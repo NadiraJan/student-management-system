@@ -1,6 +1,8 @@
 package be.intecbrussel.studentmanagementsystem.entity;
 
 import lombok.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -31,8 +33,10 @@ public class Student {
     @Column(name = "grade", nullable = false)
     private String grade;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "classTeacher_id")
+
+@NotFound(action= NotFoundAction.IGNORE)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "classTeacher_id",nullable = true)
     private ClassTeacher classTeacher;
 
 

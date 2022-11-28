@@ -1,8 +1,6 @@
 package be.intecbrussel.studentmanagementsystem.controllers;
 
-import be.intecbrussel.studentmanagementsystem.entity.ClassTeacher;
 import be.intecbrussel.studentmanagementsystem.entity.Student;
-import be.intecbrussel.studentmanagementsystem.services.interfaces.ClassTeacherService;
 import be.intecbrussel.studentmanagementsystem.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,17 +10,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-
 @Controller
 public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+
     //handler method to handle list of students and return mode and view
     @GetMapping("/students")
     public String listStudents(Model model) {
-
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
 
@@ -30,9 +30,8 @@ public class StudentController {
 
     @GetMapping("/students/new")
     public String createStudentForm(Model model) {
-        List<Student> students = studentService.getAllStudents();
-
-        model.addAttribute("student", new Student());
+        Student student = new Student();
+        model.addAttribute("student", student);
         return "create_student";
 
     }
@@ -82,4 +81,6 @@ public class StudentController {
         return "redirect:/students";
 
     }
+
+
 }
